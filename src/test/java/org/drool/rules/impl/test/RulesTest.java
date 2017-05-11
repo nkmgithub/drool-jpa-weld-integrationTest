@@ -25,16 +25,7 @@ public class RulesTest {
     private BookDao bookDao;
 
     @Test
-    public void testRules() {
-        TestInfo testInfo = new TestInfo(1700.00d, 2000.00d);
-        System.out.println("Before :\n" + testInfo);
-        List<Object> responseObjects = drollHelper.applyRules(Arrays.asList(testInfo));
-        responseObjects.forEach(object -> System.out.println("After : \n" + object + "\n\n\n"));
-        Assert.assertEquals("Must be equal ..", 1, responseObjects.size());
-    }
-
-    @Test
-    public void testProducts() {
+    public void testRulesProducts() {
         Product product = new Product("1.3","12345678",5000.97d);
         System.out.println("Before :\n" + product );
         List<Object> responseObjects = drollHelper.applyRules(Arrays.asList(product));
@@ -43,7 +34,7 @@ public class RulesTest {
     }
 
     @Test
-    public void testActions() {
+    public void testRulesActions() {
         Action action = new Action("act-1","1.30","preAction","currentAction");
         System.out.println("Before :\n" + action );
         List<Object> responseObjects = drollHelper.applyRules(Arrays.asList(action));
