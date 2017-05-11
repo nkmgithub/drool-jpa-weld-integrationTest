@@ -1,0 +1,1 @@
+package org.drool.rules;import org.drool.rules.bean.TestInfo;rule "Test Rule - 1"when    testInfo : TestInfo( installmentAmount < amount  )then    testInfo.setCollectionAmount( testInfo.getInstallmentAmount() );    testInfo.setDueAmount( testInfo.getAmount() - testInfo.getInstallmentAmount());end

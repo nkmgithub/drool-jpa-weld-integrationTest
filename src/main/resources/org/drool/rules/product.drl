@@ -1,0 +1,28 @@
+package org.drool.rules;
+
+import org.drool.rules.bean.Product;
+
+
+rule "Rule - 1"
+when
+    productInfo : Product( totalAmount >= 5000.00 &&  totalAmount <= 6000.00 )
+then
+    productInfo.setDescription(" totalAmount >= 5000.00 &&  totalAmount <= 6000.00 ");
+    productInfo.setInstallmentAmount( productInfo.getTotalAmount() / 10);
+end
+
+rule "Rule - 2"
+when
+    productInfo : Product( totalAmount >= 1000.00 &&  totalAmount <= 4000.00)
+then
+    productInfo.setDescription(" totalAmount >= 1000.00 &&  totalAmount <= 4000.00 ");
+    productInfo.setInstallmentAmount( productInfo.getTotalAmount() / 10);
+end
+
+rule "Rule - 3"
+when
+    productInfo : Product(  description == null && version == "4.00" ||  version == "5.00")
+then
+    productInfo.setDescription(" Version is 1.00 or 2.00 ");
+    productInfo.setInstallmentAmount( productInfo.getTotalAmount() / 10);
+end

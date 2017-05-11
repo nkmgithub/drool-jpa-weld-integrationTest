@@ -1,0 +1,13 @@
+package org.drool.rules;
+
+import org.drool.rules.bean.Action;
+
+
+rule "Rule - [ACTION] - 1"
+when
+    actionInfo : Action( version == "1.30" &&  name == "act-1" )
+then
+    actionInfo.setPreviousAction(" No Action ");
+    actionInfo.setCurrentAction( "Please collect 2 installments");
+end
+
